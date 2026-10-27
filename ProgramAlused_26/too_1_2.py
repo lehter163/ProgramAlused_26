@@ -57,7 +57,7 @@ try:
     print("ringi pindala: ",pi*R**2)
     print("ringi ümbermõõt: ",2*pi*R)
 except :
-    print("Valed andmed")
+    print("Valed andmed")#fdfd
 
 #Ülesanne 4
 
