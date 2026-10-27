@@ -60,4 +60,4 @@ except :
     print("Valed andmed")#fdfd
 
 #Ülesanne 4
-
+v
