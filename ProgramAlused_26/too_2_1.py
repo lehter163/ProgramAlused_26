@@ -52,40 +52,67 @@
 
 # ülesanne 4
 # Küsi toote alghind. Kui alghind on üle 700 euro, arvuta hind 30% soodustusega. Muul juhul jääb hind samaks. Kuva lõplik hind kahe komakohaga.
-# try:
-#     alghind=float(input("sisesta toote alghind: "))
-#     if alghind>700 :
-#         soodushind = alghind*0.7
-#         print("hind soodustega ", soodushind, "euro")
-#     else:
-#         print("alghind on vähem kui 700")
-# except ValueError:
-#     print("Viga! töötan ainult positiivsete andmetega")
+try:
+    alghind=float(input("sisesta toote alghind: "))
+    if alghind>700 :
+        soodushind = alghind*0.7
+        print("hind soodustega ", soodushind, "euro")
+    else:
+        print("alghind on vähem kui 700")
+except ValueError:
+    print("Viga! töötan ainult positiivsete andmetega")
     
-# #ülesanne 5
-# #Küsi toatemperatuur ja teata, kas see on üle 18 kraadi (soovitatav toasoojus talvel). Temperatuur võib olla ka negatiivne või kümnendarv, seega kontrolli sisendit try/except abil.
-# try:
-#     toatemperatuur=float(input("sisesta toatemperatuur: "))
-#     if toatemperatuur>18 :
-#         print("toatemperatuur on üle 18 kraadi")
-#     else:
-#         print("toatemperatuur on vähem kui 18 kraadi")
-# except ValueError:
-#     print("Viga! sisesta numbriga")
+#ülesanne 5
+#Küsi toatemperatuur ja teata, kas see on üle 18 kraadi (soovitatav toasoojus talvel). Temperatuur võib olla ka negatiivne või kümnendarv, seega kontrolli sisendit try/except abil.
+try:
+    toatemperatuur=float(input("sisesta toatemperatuur: "))
+    if toatemperatuur>18 :
+        print("toatemperatuur on üle 18 kraadi")
+    else:
+        print("toatemperatuur on vähem kui 18 kraadi")
+except ValueError:
+    print("Viga! sisesta numbriga")
 
 #Ülesanne 6
 #Küsi inimese pikkus sentimeetrites ja teata, kas ta on lühike, keskmise pikkusega või pikk. Piirid pane ise paika ja kirjuta need programmi alguses kommentaarina.
-try:
-    pikkus=int(input("sisesta teie pikkus santimetrites: "))
-    if pikkus<100 or pikkus>240 :
-        print("Sisesta korrektselt pikkus")
-    else:
-        if pikkus<169 :
-            print("te olete lühikese pikka")
+sugu=input("teie sugu: ").lower()
+if sugu == "mees" or sugu == "m":
+    try:
+        pikkus=int(input("sisesta teie pikkus santimetrites: "))
+        if pikkus<100 or pikkus>240 :
+            print("Sisesta korrektselt pikkus")
         else:
-            if pikkus<=180 :
-                print("te olete keskimese pikka")
+            if pikkus<169 :
+                print("te olete lühikese pikka")
             else:
-                print("te olete pikk")
-except ValueError:
-    print("sisesta ainult täisarvud")
+                if pikkus<=180 :
+                    print("te olete keskimese pikka")
+                else:
+                    print("te olete pikk")
+    except ValueError:
+        print("sisesta ainult täisarvud")
+else:
+    if sugu == "naine" or sugu == "n":
+        try:
+            pikkus=int(input("sisesta teie pikkus santimetrites: "))
+            if pikkus<100 or pikkus>240 :
+                print("Sisesta korrektselt pikkus")
+            else:
+                if pikkus<160 :
+                    print("te olete lühikese pikka")
+                else:
+                    if pikkus<=172 :
+                        print("te olete keskimese pikka")
+                    else:
+                        print("te olete pikk")
+        except ValueError:
+            print("sisesta ainult täisarvud")
+
+#Ülesanne 8
+# Küsi kasutajalt iga toote kohta eraldi, kas ta soovib seda osta: piim, sai, leib ja vähemalt kaks toodet veel.
+# Toodete hinnad loo juhuslikult moodulist random, näiteks round(random.uniform(0.5, 3), 2).
+# Kui kasutaja soovib toodet osta, küsi kogus. Kontrolli, et kogus on täisarv (isdigit()).
+# Lõpus kuva tšekk: iga ostetud toote nimi, kogus, hind ja summa ning kõige all kogusumma.
+from random import *
+summa=0
+arve="toode"
